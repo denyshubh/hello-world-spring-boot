@@ -13,7 +13,7 @@ pipeline {
         }
       }
     }
-    stage ("SonarQube analysis") { 
+    stage("SonarQube analysis") { 
       agent none
       steps { 
         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
@@ -27,6 +27,7 @@ pipeline {
         }
       } 
     }
+	}
     stage('Saving Logs') {
       agent any
       steps {
@@ -56,5 +57,4 @@ pipeline {
       }
     }
   }
-}
 }
